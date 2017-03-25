@@ -88,10 +88,13 @@ def findnewestactivation(myList):
     counter = 0
 
     for date in myList:
-       if myList[counter+1] > myList[counter]:
-           newest = myList[counter+1]
-       else:
-           counter += 1
+       if counter < len(myList)-1:
+           if myList[counter+1][1] > myList[counter][1]:
+               newest = myList[counter+1]
+               counter += 1
+           else:
+               counter += 1
+
     return newest
 
 
@@ -105,7 +108,7 @@ def notactivated():
 
 
 #Find the MRR for all active companies
-def getMRR(activeStores):
+def getmrr(activeStores):
     totalMRR = 0
 
     for store in activeStores:
@@ -187,7 +190,7 @@ while True:
         print "Inactive Stores " + str(len(notActive))
     elif userSelection == 5:
         currentactivations()
-        print '$'+ str(getMRR(stillActive))
+        print '$'+ str(getmrr(stillActive))
     elif userSelection == 6:
         currentactivations()
         pprint(findstoretype(stillActive))
