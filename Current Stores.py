@@ -1,0 +1,187 @@
+import csv
+from pprint import pprint
+from decimal import Decimal
+from datetime import datetime
+
+
+# Define Arrays
+# store everything
+masterFile = []
+# all the installs
+installs = []
+# final list of all uninstalls
+uninstalls = []
+# list of all stores that have cancelled the charge
+chargeCancelled = []
+# list of all the stores that have activated
+chargeActivated = []
+# Stores that are still installed
+stillInstalled = []
+# Stores that are still active
+stillActive = []
+# stores that are still installed but not active
+notActive = []
+
+#A unique set of stores
+storeSet = set()
+
+
+with open("apphistory.csv", 'rb') as csvfile:
+    #open and read the file (downloaded App Export from shopify app page, rename it, and move the the same directory as the py file)
+    inputFile = csv.reader(csvfile, delimiter=",",quotechar="|")
+
+    # general plan here: 1. create an array of the installs, 2. create an array of uninsalls,
+    # if install count is greater than uninstall count then check that against an array of actives
+    # if the shop is not in the actives list than fuck them
+    # ultimately create a report with unique rows for installed shops and their activation status
+
+    for row in inputFile:
+        #remove rows that are shopify employees or are our own test accounts
+        if "%experimizer%" or "%RocketAmp%" or "%test%" or "%@shopify.com%" not in row[4]:
+            # for all legitimate accounts, create arrays for installs, uninstalls, activations
+            # store everything for later access
+            masterFile.append(row)
+
+            # ???? format is 0-date, 1-event, 2-plan, 3-billing date, 4-store name, 5-store country, 6-contact, 7-store web
+            if row[1] == 'ApplicationInstalledEvent':
+                installs.append(row[4])
+            elif row[1] == 'ApplicationUninstalledEvent':
+                uninstalls.append(row[4])
+            elif row[1] == 'RecurringApplicationChargeActivatedEvent':
+                chargeActivated.append(row[4])
+            elif row[1] == 'RecurringApplicationChargeCancelledEvent':
+                chargeCancelled.append(row[4])
+        storeSet.add(row[4])
+
+
+# ALL STORES THAT ARE CURRENTLY INSTALLED REGARDLESS OF ACTIVATION
+def currentlyinstalledstores():
+    stillInstalled[:] =[]
+
+    # look for any stores that installed and uninstalled multiple times and if there are more installs than uninstalls
+    # keep them. If there are the same number of uninstalls as installs, remove it from the installed list
+    for names in storeSet:
+        if installs.count(names) > uninstalls.count(names):
+            stillInstalled.append(names)
+
+
+
+# ALL CURRENTLY INSTALLED STORES THAT ARE CURRENTLY ACTIVATED
+def currentactivations():
+    stillActive[:] =[]
+
+    # Get the most recent activation price and append that to the string
+    # TODO: Figure out which date is the most recent
+    for store in stillInstalled:
+        #if the store is still installed
+        if chargeActivated.count(store) > chargeCancelled.count(store):
+            # Find all activations of that store with the date
+            datesOfActivation = []
+            mystore = store
+
+            #NOT WORKING- entire list is duped
+            #fill in Dates of Activation with the dates that the store was activated on
+            for item in masterFile:
+                if mystore in item[4] and item[1] == 'RecurringApplicationChargeActivatedEvent':
+                    datesOfActivation.append([item[4],item[0], item[7], item[2], item[6]])
+
+            # If there is more than one activation date, send to a function to find the most recent activation date
+            if len(datesOfActivation) == 1:
+                    stillActive.append(datesOfActivation[0])
+            elif len(datesOfActivation) > 1:
+                stillActive.append(findnewestactivation(datesOfActivation))
+
+# a function to find the most recent activation date in a list
+def findnewestactivation(myList):
+    newest = myList[0]
+    counter = 0
+
+    for date in myList:
+       if myList[counter+1] > myList[counter]:
+           newest = myList[counter+1]
+       else:
+           counter += 1
+    return newest
+
+
+# ALL CURRENTLY INSTALLED STORES THAT ARE CURRENTLY NOT ACTIVATED
+def notactivated():
+    notActive[:]= []
+
+    for store in stillInstalled:
+        if chargeActivated.count(store) <= chargeCancelled.count(store):
+            notActive.append(store)
+
+
+#Find the MRR for all active companies
+def getMRR(activeStores):
+    totalMRR = 0
+
+    for store in activeStores:
+        thing = Decimal(store[3][17:])
+        totalMRR += thing
+
+    return totalMRR
+
+
+
+
+
+# A SUMMARY OF THE STORE STATS
+def summary():
+    print "---------------------------------"
+    print 'TOTAL SUMMARY \n\n'
+    print "All time installs " + str(len(storeSet))
+    print "Currently Installed " + str(len(stillInstalled))
+    print "Currently Active " + str(len(stillActive))
+    print "Inactive Stores " + str(len(notActive))
+
+
+# Make sure everything gets populated and then ask the user what they want to do
+currentlyinstalledstores()
+
+
+while True:
+    print ""
+    print ""
+    print "Press 0 to Run the script through"
+    print "Press 1 for Currently Installed stores"
+    print "Press 2 for Stores that are currently activated"
+    print "Press 3 for Installed but not active stores"
+    print "Press 4 for a summary"
+    print "Press 5 for for total MRR"
+    print "Press 6 to Quit"
+    userSelection = raw_input("Select an option: ")
+    userSelection = int(userSelection)
+
+    if userSelection == 1:
+        currentlyinstalledstores()
+        pprint (stillInstalled)
+        print "Total Stores Installed: " + str(len(stillInstalled))
+    elif userSelection == 2:
+        currentactivations()
+        print (stillActive)
+        print "Currently Active Stores: "+ str(len(stillActive))
+    elif userSelection == 3:
+        notactivated()
+        pprint (notActive)
+        print "Total Inactive Stores: "+ str(len(notActive))
+    elif userSelection == 4:
+        currentlyinstalledstores()
+        currentactivations()
+        notactivated()
+
+        print 'TOTAL SUMMARY \n\n'
+        print "All time installs " + str(len(storeSet))
+        print "Currently Installed " + str(len(stillInstalled))
+        print "Currently Active " + str(len(stillActive))
+        print "Inactive Stores " + str(len(notActive))
+    elif userSelection == 5:
+        currentactivations()
+        print '$'+ str(getMRR(stillActive))
+    elif userSelection == 6:
+        break
+
+
+
+
