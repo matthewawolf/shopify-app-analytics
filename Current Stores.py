@@ -32,20 +32,17 @@ with open("apphistory.csv", 'rb') as csvfile:
 
     for row in inputFile:
         #remove rows that are shopify employees or are our own test accounts
-        if "%experimizer%" or "%RocketAmp%" or "%test%" or "%@shopify.com%" not in row[4]:
-            # for all legitimate accounts, create arrays for installs, uninstalls, activations
-            # store everything for later access
-            masterFile.append(row)
+        masterFile.append(row)
 
-            # Format is 0-date, 1-event, 2-plan, 3-billing date, 4-store name, 5-store country, 6-contact, 7-store web
-            if row[1] == 'ApplicationInstalledEvent':
-                installs.append(row[4])
-            elif row[1] == 'ApplicationUninstalledEvent':
-                uninstalls.append(row[4])
-            elif row[1] == 'RecurringApplicationChargeActivatedEvent':
-                chargeActivated.append(row[4])
-            elif row[1] == 'RecurringApplicationChargeCancelledEvent':
-                chargeCancelled.append(row[4])
+        # Format is 0-date, 1-event, 2-plan, 3-billing date, 4-store name, 5-store country, 6-contact, 7-store web
+        if row[1] == 'ApplicationInstalledEvent':
+            installs.append(row[4])
+        elif row[1] == 'ApplicationUninstalledEvent':
+            uninstalls.append(row[4])
+        elif row[1] == 'RecurringApplicationChargeActivatedEvent':
+            chargeActivated.append(row[4])
+        elif row[1] == 'RecurringApplicationChargeCancelledEvent':
+            chargeCancelled.append(row[4])
         storeSet.add(row[4])
 
 
