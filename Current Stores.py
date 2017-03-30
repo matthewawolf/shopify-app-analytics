@@ -22,6 +22,8 @@ stillActive = []
 # stores that are still installed but not active
 notActive = []
 
+
+
 #A unique set of stores
 storeSet = set()
 
@@ -135,7 +137,15 @@ def findstoretype(activeStores):
 
     return plans
 
-
+def writecsv(somelist, filename):
+        filename = filename+".csv"
+        with open(filename, 'a') as outcsv:
+        #configure writer to write standard csv file
+            writefile = csv.writer(outcsv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            writefile.writerow(somelist)
+            for s in somelist:
+                #Write item to outcsv
+                writefile.writerow(s)
 
 
 
@@ -167,18 +177,35 @@ while True:
     userSelection = raw_input("Select an option: ")
     userSelection = int(userSelection)
 
-    if userSelection == 1:
+    if userSelection == 0:
         currentlyinstalledstores()
         pprint (stillInstalled)
         print "Total Stores Installed: " + str(len(stillInstalled))
+
+        saveResult = raw_input("Do you want to save this y/n? ")
+        if saveResult == "y":
+            writecsv(stillInstalled, "Stores Currently Installed")
+
     elif userSelection == 2:
         currentactivations()
         pprint (stillActive)
         print "Currently Active Stores: "+ str(len(stillActive))
+
+        saveResult = raw_input("Do you want to save this y/n? ")
+        if saveResult == "y":
+            writecsv(stillActive, "Stores Still Active")
+
+
     elif userSelection == 3:
         notactivated()
         pprint (notActive)
         print "Total Inactive Stores: "+ str(len(notActive))
+
+        saveResult = raw_input("Do you want to save this y/n? ")
+        if saveResult == "y":
+            writecsv(notActive, "Inactive Stores")
+
+
     elif userSelection == 4:
         currentlyinstalledstores()
         currentactivations()
