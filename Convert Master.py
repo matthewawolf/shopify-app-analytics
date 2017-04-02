@@ -10,7 +10,7 @@ uninstalls = []
 activations = []
 storeSet = set()
 
-
+# function to find the newest record in a list based on the dates passed in
 def isnewest(someRows):
     newest = someRows[0]
     counter = 0
