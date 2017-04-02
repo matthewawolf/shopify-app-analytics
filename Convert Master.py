@@ -100,7 +100,7 @@ for store in storeSet:
     cleanList.append([t[4],t[7],t[0],storeStatus, activeStatus, mrrAmount, t[6]])
 
 # Output the list to a file
-with open("Store List1.csv", 'a') as outcsv:
+with open("Store List.csv", 'a') as outcsv:
     #configure writer to write standard csv file
     writefile = csv.writer(outcsv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     for s in cleanList:
