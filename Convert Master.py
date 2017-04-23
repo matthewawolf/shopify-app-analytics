@@ -27,7 +27,8 @@ def isnewest(someRows):
 
 
 with open("apphistory.csv", 'rb') as csvfile:
-    inputFile = csv.reader(csvfile, delimiter=",",quotechar="|")
+    next(csvfile)
+    inputFile = csv.reader(csvfile)
 
     # Format is 0-date, 1-event, 2-plan, 3-billing date, 4-store name, 5-store country, 6-contact, 7-store web
     for r in inputFile:
@@ -38,6 +39,8 @@ with open("apphistory.csv", 'rb') as csvfile:
     # compare install to uninstall if install count is higher, than check to see if it is active to set status
 
 cleanList.append(["Store Name","Store URL", "Install Date", "Install Status", "Active Status", "MRR", "Contact Info"])
+
+del r
 
 
 for store in storeSet:
@@ -50,10 +53,12 @@ for store in storeSet:
     storeStatus = ""
     mrrAmount = 0.00
 
-# TODO Logic error in the loop; its not finding all, THEN adding recent, its adding each one as it goes through.
+
+    thing = ""
+
 
     # Make a counter for the length of the file, put all of the instances of that store into a temp file.
-    # loop through the temp file to process it, then output the final result.
+    # loop through the temp list to process it, then output the final result.
 
     for row in masterList:
         if row[4] == store:
@@ -80,10 +85,16 @@ for store in storeSet:
 
         # Determine if the store is still active
         # TODO If there are frozen or cancelled or expired charges, get the date and if any of the dates are after the newest activation then the store is not active.
-        if row[1] == 'RecurringApplicationChargeActivatedEvent':
+        if t[1] == 'RecurringApplicationChargeActivatedEvent':
             activations.append([t[4],t[0]])
-            mrrAmount = str(t[2][16:])
+            if str(t[2][10:22]) == "Professional":
+                mrrAmount = str(t[2][30:])
+            else:
+                mrrAmount = str(t[2][16:])
             activeStatus = "Active"
+
+        #rocketamp professional plan
+
 
         # If there is more than one activation date, send to a function to find the most recent activation date
         if len(activations) == 1:
@@ -99,8 +110,11 @@ for store in storeSet:
     #Add the information for this store to the list of stores to output
     cleanList.append([t[4],t[7],t[0],storeStatus, activeStatus, mrrAmount, t[6]])
 
+
+
+
 # Output the list to a file
-with open("Store List.csv", 'a') as outcsv:
+with open("Store List.csv", 'wb') as outcsv:
     #configure writer to write standard csv file
     writefile = csv.writer(outcsv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     for s in cleanList:
