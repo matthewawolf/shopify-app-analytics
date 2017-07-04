@@ -21,22 +21,34 @@
       <file leaf-file-name="Convert Master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Convert Master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="22" column="32" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="32" />
+            <state relative-caret-position="308">
+              <caret line="188" column="0" lean-forward="true" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
               <folding>
-                <element signature="e#188#490#0" expanded="false" />
-                <element signature="e#616#904#0" expanded="false" />
+                <element signature="e#24#34#0" expanded="true" />
+                <element signature="e#730#1018#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/settings.py">
+      <file leaf-file-name="utility.py" pinned="false" current-in-tab="false">
+        <entry file="file:///Library/Python/2.7/site-packages/xlsxwriter/utility.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="155">
+              <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="payments.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/payments.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="34" column="78" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="78" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -53,7 +65,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>activations</find>
+      <find>import</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -109,7 +125,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -124,6 +139,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -331,6 +347,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16882068" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32739726" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32863188" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32862645" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -344,7 +361,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -385,17 +401,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Convert Master.py</url>
-          <line>74</line>
-          <option name="timeStamp" value="105" />
+          <line>154</line>
+          <option name="timeStamp" value="152" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="138" />
+      <option name="time" value="153" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="PythonConfigurationType">
-        <watch expression="mrrAmount" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Convert Master.py">
@@ -403,33 +415,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#188#490#0" expanded="false" />
-            <element signature="e#616#904#0" expanded="false" />
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/PycharmProjects/appannieSH/appanniesh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -438,8 +426,20 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#188#490#0" expanded="false" />
-            <element signature="e#616#904#0" expanded="false" />
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py" />
+    <entry file="file://$PROJECT_DIR$/Convert Master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -452,33 +452,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
+    <entry file="file://$PROJECT_DIR$/settings.py" />
+    <entry file="file://$USER_HOME$/PycharmProjects/appannieSH/appanniesh.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1140">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Convert Master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="87" column="25" lean-forward="false" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#188#490#0" expanded="false" />
-            <element signature="e#616#904#0" expanded="false" />
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py" />
+    <entry file="file://$PROJECT_DIR$/Convert Master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="87" column="25" lean-forward="false" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
+          <folding>
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -492,20 +505,13 @@
         <state relative-caret-position="1035">
           <caret line="87" column="25" lean-forward="false" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
           <folding>
-            <element signature="e#188#490#0" expanded="false" />
-            <element signature="e#616#904#0" expanded="false" />
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -519,27 +525,20 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#188#490#0" expanded="false" />
-            <element signature="e#616#904#0" expanded="false" />
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py" />
     <entry file="file://$PROJECT_DIR$/Convert Master.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#188#490#0" expanded="false" />
-            <element signature="e#616#904#0" expanded="false" />
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -549,8 +548,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#188#490#0" expanded="false" />
-            <element signature="e#616#904#0" expanded="false" />
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -560,8 +559,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#188#490#0" expanded="false" />
-            <element signature="e#616#904#0" expanded="false" />
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -571,8 +570,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#188#490#0" expanded="false" />
-            <element signature="e#616#904#0" expanded="false" />
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -582,8 +581,8 @@
         <state relative-caret-position="270">
           <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
           <folding>
-            <element signature="e#188#490#0" expanded="false" />
-            <element signature="e#616#904#0" expanded="false" />
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -593,8 +592,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#188#490#0" expanded="false" />
-            <element signature="e#616#904#0" expanded="false" />
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -643,25 +642,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
           <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
+    <entry file="file://$PROJECT_DIR$/settings.py" />
+    <entry file="file://$PROJECT_DIR$/payments.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="181">
+          <caret line="34" column="78" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="78" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/xlsxwriter/utility.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Convert Master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="22" column="32" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="32" />
+        <state relative-caret-position="308">
+          <caret line="188" column="0" lean-forward="true" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
           <folding>
-            <element signature="e#188#490#0" expanded="false" />
-            <element signature="e#616#904#0" expanded="false" />
+            <element signature="e#24#34#0" expanded="true" />
+            <element signature="e#730#1018#0" expanded="false" />
           </folding>
         </state>
       </provider>
