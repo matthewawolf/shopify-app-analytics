@@ -7,8 +7,8 @@ import string  # To help with the XLSX filtering
 from datetime import *
 
 # Declare global vars
-masterList = []
-cleanList = []
+masterList = [['Date', 'Event',	'Details', 'Billing on', 'Shop name', 'Shop country', 'Shop email',	'Shop domain']]
+cleanList = [["Store Name", "Store URL", "Install Date", "Install Status", "Active Status", "MRR", "Contact Info"]]
 storeSet = set()
 
 
@@ -36,7 +36,7 @@ with open("apphistory.csv", 'rb') as csvfile:
         storeSet.add(r[4])
         masterList.append([r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7]])
 
-cleanList.append(["Store Name", "Store URL", "Install Date", "Install Status", "Active Status", "MRR", "Contact Info"])
+#cleanList.append(["Store Name", "Store URL", "Install Date", "Install Status", "Active Status", "MRR", "Contact Info"])
 
 
 for store in storeSet:
@@ -133,7 +133,7 @@ for store in storeSet:
         storeStatus = "Uninstalled"
 
     # Add the information for this store to the list of stores to output
-    cleanList.append([t[4], t[7], datetime.strptime(t[0], '%Y-%m-%d %H:%M:%S %Z'), storeStatus, activeStatus, mrrAmount, t[6]])
+    cleanList.append([t[4], t[7], datetime.strptime(t[0], '%Y-%m-%d %H:%M:%S %Z'), storeStatus, activeStatus, float(mrrAmount), t[6]])
 
 
 # Output the list to a csv file
@@ -144,75 +144,55 @@ with open("Store List.csv", 'wb') as outcsv:
         writefile.writerow(s)
 
 
-
 # Output the file to an Excel Spreadsheet
 workbook = xlsxwriter.Workbook('Store List.xlsx', {'strings_to_numbers': True})
-worksheet1 = workbook.add_worksheet('Summary')
-thing = 'A1:' + string.uppercase[len(cleanList[0])-1] + '1'
-worksheet1.autofilter('A1:' + string.uppercase[len(cleanList[0])-1] + '1')
 
-# Create formatting
+# Set formatting
 money = workbook.add_format({'num_format': '$#,##0.00'})
 bold = workbook.add_format({'bold': True})
 dateFormat = workbook.add_format({'num_format': 'mm/dd/yy'})
 
-
-# Create a sheet for the summarized data
+# Create the summery sheet with filters
+worksheet1 = workbook.add_worksheet('Summary')
+worksheet1.autofilter('A1:' + string.uppercase[len(cleanList[0])-1] + '1')
 row = 0
-col = 0
-
-worksheet1.write(row, col, 'Store Name', bold)
-worksheet1.write(row, col + 1, 'Store URL', bold)
-worksheet1.write(row, col + 2, 'Install Date', bold)
-worksheet1.write(row, col + 3, 'Install Status', bold)
-worksheet1.write(row, col + 4, 'Active Status', bold)
-worksheet1.write(row, col + 5, 'Current MRR', bold)
-worksheet1.write(row, col + 6, 'Contact Info', bold)
-row += 1
-
-
-# Iterate over the data and write it out row by row.
-for c in cleanList[1:]:
-    worksheet1.write(row, col, c[0].decode('utf-8').strip())
-    worksheet1.write(row, col + 1, c[1].decode('utf-8').strip())
-    worksheet1.write(row, col + 2, c[2], dateFormat)
-    worksheet1.write(row, col + 3, c[3].decode('utf-8').strip())
-    worksheet1.write(row, col + 4, c[4].decode('utf-8').strip())
-    worksheet1.write(row, col + 5, c[5], money)
-    worksheet1.write(row, col + 6, c[6].decode('utf-8').strip())
+t = bold
+for c in cleanList:
+    col = 0
+    del r
+    for r in c:
+        if isinstance(r, str):
+            r = r.decode('utf-8').strip()
+        elif isinstance(r, datetime):
+            t = dateFormat
+        elif isinstance(r, float):
+            t = money
+        worksheet1.write(row, col, r, t)
+        col += 1
     row += 1
+    t = ''
 
-# Create a sheet for the raw data
+
+# Create the Raw Data sheet with filters
 worksheet2 = workbook.add_worksheet('Raw Data')
 worksheet2.autofilter('A1:' + string.uppercase[len(masterList[0])-1] + '1')
-
-
 row = 0
-col = 0
-
-worksheet2.write(row, col, 'Date', bold)
-worksheet2.write(row, col + 1, 'Event', bold)
-worksheet2.write(row, col + 2, 'Details', bold)
-worksheet2.write(row, col + 3, 'Billing on', bold)
-worksheet2.write(row, col + 4, 'Shop name', bold)
-worksheet2.write(row, col + 5, 'Shop country', bold)
-worksheet2.write(row, col + 6, 'Shop email', bold)
-worksheet2.write(row, col + 7, 'Shop domain', bold)
-row += 1
-
+t = bold
 for m in masterList:
-    worksheet2.write(row, col, m[0], dateFormat)
-    worksheet2.write(row, col + 1, m[1].decode('utf-8').strip())
-    worksheet2.write(row, col + 2, m[2].decode('utf-8').strip())
-    worksheet2.write(row, col + 3, m[3], dateFormat)
-    worksheet2.write(row, col + 4, m[4].decode('utf-8').strip())
-    worksheet2.write(row, col + 5, m[5].decode('utf-8').strip())
-    worksheet2.write(row, col + 6, m[6].decode('utf-8').strip())
-    worksheet2.write(row, col + 7, m[7].decode('utf-8').strip())
+    col = 0
+    for r in m:
+        if isinstance(r, str):
+            r = r.decode('utf-8').strip()
+        elif isinstance(r, datetime):
+            t = dateFormat
+        elif isinstance(r, float):
+            t = money
+        worksheet2.write(row, col, r, t)
+        col += 1
     row += 1
+    t = ''
 
 
-#Close the workbook
+# Close the workbook
 workbook.close()
-
 
